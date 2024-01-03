@@ -1,5 +1,6 @@
-// In src/index.js
 const express = require("express");
+
+const router = require("./src/routes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -8,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => {
 	res.send("<h2>It's Working!</h2>");
 });
+
+app.use("/api/", router);
 
 app.listen(PORT, () => {
 	console.log(`API is listening on port ${PORT}`);
